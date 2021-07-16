@@ -5,6 +5,16 @@ export default class Snake {
         this.body.push(
             this.scene.add.rectangle(0,0,16,16,0xff0000).setOrigin(0)
         );
+        this.body.push(
+            this.scene.add.rectangle(0,0,16,16,0x0000ff).setOrigin(0)
+        );
+        scene.input.keyboard.on('keydown' , e => {
+            this.keydown(e);
+        });
+    }
+
+    keydown(event) {
+        console.log(event);
     }
 
     update(time) {

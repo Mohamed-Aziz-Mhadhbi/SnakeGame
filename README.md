@@ -1,4 +1,4 @@
-Snake Game
+# Snake Game
 Creating Snake Game using Javascript, Node.js &amp; Express.js
 
 ![](image/2021-07-16_22-03.png)

@@ -35,15 +35,19 @@ export default class Snake {
         console.log(event);
         switch (event.keyCode) {
             case 37://left
+            if (this.direction !== Phaser.Math.Vector2.RIGHT)
             this.direction = Phaser.Math.Vector2.LEFT;
             break;
             case 38://up
+            if (this.direction !== Phaser.Math.Vector2.DOWN)
             this.direction = Phaser.Math.Vector2.UP;
             break;
             case 39://right
+            if (this.direction !== Phaser.Math.Vector2.LEFT)
             this.direction = Phaser.Math.Vector2.RIGHT;
             break;
             case 40://down
+            if (this.direction !== Phaser.Math.Vector2.UP)
             this.direction = Phaser.Math.Vector2.DOWN;
             break;
         }
@@ -77,7 +81,7 @@ export default class Snake {
         }
         //Death by eating own tail - headpos === any fo our tail positions
         let tail = this.body.slice(1);
-        if (tail.filter(s => s.x === this.body[0].x && s.y === this.body[0].y).length > 0) {
+        if (tail.some(s => s.x === this.body[0].x && s.y === this.body[0].y)) {
             this.scene.scene.restart();
         }
     }
